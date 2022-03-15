@@ -6,6 +6,7 @@ const UserModel = require("./models/Users");
 const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 
 mongoose.connect("mongodb+srv://tlala22:Learn2019@cluster0.gpsln.mongodb.net/merntutorial?retryWrites=true&w=majority");
 

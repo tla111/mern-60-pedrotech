@@ -1,10 +1,15 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
-  const [listOfUsers, setListOfUsers] = useState([
-    { id: 1, name: "Pedro", age: 20, username: "PedroTech" }
-  ]);
+  const [listOfUsers, setListOfUsers] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/getUsers").then((response) => {
+      setListOfUsers(response.data);
+    })
+  }, []);
 
   return (
     <div className="App">
